@@ -1,67 +1,59 @@
 package src;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Scanner;
-
-public class FindFirstAndLastOccurrenceOfElement {
-    public static void main(String[] args){
-        List<Integer> listOfIntegers = new ArrayList<>();
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter the size of an array");
-        int sizeOfAnArray =  scanner.nextInt();
-        System.out.println("Enter Numbers");
-        for(int i=0;i<sizeOfAnArray;i++){
-            int inputNumber = scanner.nextInt();
-            listOfIntegers.add(inputNumber);
+class FindFirstAndLastOccurrenceOfElement {
+    public int[] searchRange(int[] nums, int target) {
+        int[] result = new int[2];
+        if(nums.length==0){
+            result[0] = -1;
+            result[1] = -1;
+            return result;
         }
-        Collections.sort(listOfIntegers);
-        System.out.println("Enter Target");
-        int target = scanner.nextInt();
-        List<Integer> result = new ArrayList<>();
-        findFirstOccurrence(target, listOfIntegers, result);
-        if (listOfIntegers.size()==0) {
-            System.out.println(-1);
+        findFirstOccurrence(target, nums, result);
+        if(result[0]==-1){
+            return result;
         } else {
-            findLastOccurrence(target, listOfIntegers, result);
+            findLastOccurrence(target, nums, result);
         }
-        System.out.println(result);
+        return result;
     }
 
-    private static void findLastOccurrence(int target, List<Integer> listOfIntegers, List<Integer> result) {
+    private static void findFirstOccurrence(int target, int[] integerList, int[] result) {
         int low = 0;
-        int high = listOfIntegers.size()-1;
-        while(low<=high){
-                int mid = low + ((high-low)/2);
-                if(target == listOfIntegers.get(mid) && (mid == listOfIntegers.size()-1 || listOfIntegers.get(mid) != listOfIntegers.get(mid+1))){
-                    result.add(mid);
-                    break;
-                } else if(target<=listOfIntegers.get(mid)){
-                    high = mid+1;
-                } else if(target>listOfIntegers.get(mid)){
-                    low = mid-1;
-                }
-            }
-    }
-
-    private static void findFirstOccurrence(int target, List<Integer> integerList, List<Integer> result) {
-        int low = 0;
-        int high = integerList.size()-1;
+        int high = integerList.length-1;
+        boolean flag = true;
         while(low<=high){
             int mid = low + ((high-low)/2);
-            if(target == integerList.get(mid) && (mid == 0 || integerList.get(mid) != integerList.get(mid-1))){
-                result.add(mid);
+            if(target == integerList[mid] && (mid == 0 || integerList[mid] != integerList[mid-1])){
+                result[0]=mid;
+                flag = false;
                 break;
-            } else if(target>integerList.get(mid)){
+            } else if(target>integerList[mid]){
                 low = mid+1;
-            } else if(target<=integerList.get(mid)){
+            } else if(target<=integerList[mid]){
                 high = mid-1;
             }
         }
+
+        if(flag){
+            result[0] = -1;
+            result[1] = -1;
+        }
     }
 
+    private static void findLastOccurrence(int target, int[] listOfIntegers, int[] result) {
+        int low = 0;
+        int high = listOfIntegers.length-1;
+        while(low<=high){
+            int mid = low + ((high-low)/2);
+            if(target == listOfIntegers[mid] && (mid == listOfIntegers.length-1 || listOfIntegers[mid] != listOfIntegers[mid+1])){
+                result[1]=mid;
+                break;
+            } else if(target<listOfIntegers[mid]){
+                high = mid-1;
+            } else if(target>=listOfIntegers[mid]){
+                low = mid+1;
+            }
+        }
+    }
 
 }
-//0 1 2 3 4 5 6
-//1 3 3 3 4 4 5
