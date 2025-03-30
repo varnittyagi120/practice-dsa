@@ -1,4 +1,6 @@
-package src.ReverseLinkedList;
+package src.FindMiddleOfTheLinkedList;
+
+import java.sql.SQLOutput;
 
 public class LinkedList {
     Node head;
@@ -14,7 +16,6 @@ public class LinkedList {
     private static void addElement(LinkedList linkedList, int data){
         Node node = new Node(data);
         node.next = null;
-
         if(linkedList.head==null){
             linkedList.head = node;
         } else {
@@ -34,32 +35,27 @@ public class LinkedList {
         }
     }
 
-    private static void revereLinkedList(LinkedList linkedList){
-        Node lastNode = null;
-        Node currentNode = linkedList.head;
-        Node tempNode = null;
-        while(currentNode!=null){
-            tempNode = currentNode;
-            currentNode = currentNode.next;
-            tempNode.next = lastNode;
-            lastNode = tempNode;
+
+    private static void findMiddleOfAnArray(LinkedList linkedList){
+        Node slowPointer = linkedList.head;
+        Node fastPointer = linkedList.head;
+        while(fastPointer!=null && fastPointer.next!=null){
+            slowPointer = slowPointer.next;
+            fastPointer = fastPointer.next.next;
+            System.out.println(slowPointer.data);
         }
-        linkedList.head = lastNode;
+        System.out.println(slowPointer.data);
     }
+
     public static void main(String[] args) {
-      LinkedList linkedList = new LinkedList();
-      addElement(linkedList, 10);
-      addElement(linkedList, 11);
-      addElement(linkedList, 12);
-      addElement(linkedList, 13);
-      iterateLinkedList(linkedList);
-      revereLinkedList(linkedList);
-      System.out.println("Print Linkedlist in reverse way : ");
-      iterateLinkedList(linkedList);
+        LinkedList linkedList = new LinkedList();
+        addElement(linkedList, 10);
+        addElement(linkedList, 20);
+//        addElement(linkedList, 30);
+//        addElement(linkedList, 40);
+//        addElement(linkedList, 50);
+//        addElement(linkedList, 60);
+        iterateLinkedList(linkedList);
+        findMiddleOfAnArray(linkedList);
     }
-
 }
-
-//1 -> 2 -> 3 -> 4 -> 5 -> 6
-
-//null->

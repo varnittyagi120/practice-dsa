@@ -28,7 +28,7 @@ public class LinkedList {
      private static void iterateLinkedList(LinkedList linkedList){
          System.out.println("Linked List Elements : ");
          Node currentNode = linkedList.head;
-         while (currentNode.next!=null){
+         while (currentNode!=null){
              System.out.println(currentNode.data+" ");
              currentNode = currentNode.next;
          }
