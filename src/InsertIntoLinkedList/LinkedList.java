@@ -1,6 +1,4 @@
-package src;
-
-import org.w3c.dom.Node;
+package src.InsertIntoLinkedList;
 
 public class LinkedList {
      Node head;
