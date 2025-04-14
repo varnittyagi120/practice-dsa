@@ -38,6 +38,9 @@ public class LinkedList {
         addElement(linkedList, 9);
         addElement(linkedList, 9);
         addElement(linkedList, 9);
+        addElement(linkedList, 9);
+        addElement(linkedList, 9);
+
         System.out.println("linkedlist 1");
         iterateLinkedList(linkedList);
         LinkedList linkedList2 = new LinkedList();
@@ -94,6 +97,7 @@ public class LinkedList {
                     carry = 0;
                     currentNode1.val = sum%10;
                 }
+                previousPointer = currentNode1;
                 currentNode1 = currentNode1.next;
             }
         }
