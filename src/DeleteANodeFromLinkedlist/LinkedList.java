@@ -1,7 +1,7 @@
 package src.DeleteANodeFromLinkedlist;
 
 public class LinkedList {
-    Node head;
+    public Node head;
     public static class Node{
         int data;
         Node next;
