@@ -8,13 +8,15 @@ public class Factorial {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int input = scanner.nextInt();
-        System.out.println(findFactorial(input));
+        for(int i=1;i<=input;i++){
+            System.out.println(fibo(i));
+        }
     }
 
-    private static int findFactorial(int number){
-        if(number==1){
+    private static int fibo(int number){
+        if(number==1 || number==2){
             return 1;
         }
-        return number*findFactorial(number-1);
+        return fibo(number-1)+fibo(number-2);
     }
 }
