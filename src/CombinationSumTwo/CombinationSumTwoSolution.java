@@ -4,31 +4,38 @@ import java.util.*;
 
 public class CombinationSumTwoSolution {
     public static void main(String[] args) {
-        int[] candidates = {2,5,2,1,2};
+        System.out.println("Enter Target : ");
+        int[] candidates = {10,1,2,7,6,1,5};
         Scanner scanner = new Scanner(System.in);
         int target = scanner.nextInt();
         List<List<Integer>> listOfInteger = new ArrayList<>();
-        findCombinationSum(candidates, new ArrayList<>(), 0, new HashSet<>(), 0, listOfInteger, target);
+        Arrays.sort(candidates);
+        for(int i=0;i<candidates.length;i++){
+            System.out.println("candidates : "+candidates[i]);
+        }
+        findCombinationSumTwoSolution(candidates, 0,  listOfInteger, new ArrayList<>(), target);
         for (List<Integer> integerList : listOfInteger) {
             System.out.println(integerList);
         }
     }
 
-    private static void findCombinationSum(int[] candidates, List<Integer> listOfInteger, int l, HashSet<String> hashSet, int sum, List<List<Integer>> result, int target){
-         if(l==candidates.length){
-             if(sum == target){
-                 List<Integer> tempList = new ArrayList<>(listOfInteger);
-                 Collections.sort(tempList);
-                 if(!hashSet.contains(tempList.toString())){
-                     hashSet.add(tempList.toString());
-                     result.add(tempList);
-                 }
-             }
-             return;
-         }
-         listOfInteger.add(candidates[l]);
-         findCombinationSum(candidates, listOfInteger, l+1, hashSet, sum+candidates[l], result, target);
-         listOfInteger.remove(listOfInteger.size()-1);
-         findCombinationSum(candidates, listOfInteger, l+1, hashSet, sum, result, target);
+
+    private static void findCombinationSumTwoSolution(int[] arr, int index, List<List<Integer>> result, List<Integer> tempArray, int target) {
+        if(target == 0){
+            result.add(new ArrayList<>(tempArray));
+            return;
+        }
+
+        for(int i = index; i<arr.length; i++){
+            if(i>index && arr[i]==arr[i-1]){
+                continue;
+            }
+            if(arr[i]>target){
+                break;
+            }
+            tempArray.add(arr[i]);
+            findCombinationSumTwoSolution(arr, i+1, result, tempArray, target-arr[i]);
+            tempArray.remove(tempArray.size()-1);
+        }
     }
 }
