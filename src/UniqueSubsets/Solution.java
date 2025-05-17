@@ -7,7 +7,7 @@ import java.util.List;
 
 public class Solution {
     public static void main(String[] args) {
-        int[] input = {1,2,2};
+        int[] input = {3,2,1};
         HashSet<String> hashSet = new HashSet<>();
         findUniqueSubset(input, 0, new ArrayList<>(), hashSet);
         for (String str : hashSet) {
@@ -17,8 +17,9 @@ public class Solution {
 
     private static void findUniqueSubset(int[] input, int l, List<Integer> listOfInteger, HashSet<String> setOfInteger){
          if(l==input.length){
-             Collections.sort(listOfInteger);
-             setOfInteger.add(listOfInteger.toString());
+             List<Integer> tempList = new ArrayList<>(listOfInteger);
+             Collections.sort(tempList);
+             setOfInteger.add(tempList.toString());
              return;
          }
          listOfInteger.add(input[l]);
