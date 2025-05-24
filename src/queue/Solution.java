@@ -13,5 +13,6 @@ public class Solution {
         System.out.println(queue.peek());
         queue.remove();
         System.out.println(queue);
+        System.out.println(queue.isEmpty());
     }
 }
