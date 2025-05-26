@@ -1,4 +1,4 @@
-package src.subsetsumproblem;
+package src.dynamicprogramming.subsetsumproblem;
 
 public class Solution {
     static Boolean isSubsetSum(int arr[], int sum) {
