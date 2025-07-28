@@ -17,7 +17,6 @@ public class PascalTringleSolution {
             innerList[0]=1;
             innerList[i]=1;
             int k = 1;
-            i=3
             if(k<i){
                 List<Integer> previousRowElements = result.get(i-1);
                 for(int j=0;j<previousRowElements.size();j++){
