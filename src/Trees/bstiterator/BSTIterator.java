@@ -36,5 +36,5 @@ public class BSTIterator {
         private void pushAll(TreeNode node){
             for(;node!=null;stackTracker.push(node),node=node.left);
         }
-    
+
 }
