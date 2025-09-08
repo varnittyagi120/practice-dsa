@@ -1,5 +1,7 @@
 package src;
 
+// time complexity O(n)
+// space complexity O(1)
 public class MaximumAverageSubArray {
     public double findMaxAverage(int[] nums, int k) {
         int sum = 0;
