@@ -1,5 +1,8 @@
 package src;
 
+
+//time complexity O(n)
+//space complexity O(n)
 public class ReverseAStringUsingRecursion {
         public void reverseString(char[] s) {
             reverseAString(s, 0, s.length-1);
