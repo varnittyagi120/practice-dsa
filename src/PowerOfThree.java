@@ -16,3 +16,5 @@ public class PowerOfThree {
             return isPowerOfThree(n/3);
         }
 }
+//time complexity O(log(n))
+//space complexity O(log(n))
