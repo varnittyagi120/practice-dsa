@@ -1,5 +1,7 @@
 package src;
 
+//time complexity O(2^n)
+//space complexity O(n)
 public class PrintSubsetSumCount {
     public static void main(String[] args) {
         int[] nums = {2, 3, 1};
