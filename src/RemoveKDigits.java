@@ -1,7 +1,5 @@
 package src;
 
-import java
-
 import java.util.Stack;
 
 public class RemoveKDigits {
