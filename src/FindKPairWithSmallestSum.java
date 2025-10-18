@@ -1,7 +1,8 @@
 package src;
 
 import java.util.*;
-
+// time complexity O(klog(k))
+//space complexity O(k)
 public class FindKPairWithSmallestSum {
     public class Pair{
         int sum;
