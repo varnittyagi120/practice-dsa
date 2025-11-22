@@ -7,6 +7,7 @@ import java.util.Queue;
 
 // time complexity O(n+2*E)
 // space complexity O(n)
+//using BFS
 
 public class CheckBipertiteGraph {
         public boolean isBipartite(int V, int[][] edges) {
