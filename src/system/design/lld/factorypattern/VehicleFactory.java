@@ -18,4 +18,4 @@ public class VehicleFactory {
 // advantages of the factory pattern
 // centralization of object creation
 // Scalable --> easy to add new vehicles
-// Encapsulation with abstraction, main class does not know how the objects are being created 
+// Encapsulation with abstraction, main class does not know how the objects are being created
